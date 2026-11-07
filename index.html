@@ -150,8 +150,8 @@ document.getElementById('f').addEventListener('submit', e => {
 });
 
 Promise.all([
-  fetch('/dataRecipies.json').then(r => r.json()),
-  fetch('/dataPrice.json').then(r => r.json())
+  fetch('data/dataRecipies.json').then(r => r.json()),
+  fetch('data/dataPrice.json').then(r => r.json())
 ]).then(([r, p]) => { recipes = r; prices = p; })
   .catch(() => { document.getElementById('out').innerHTML = '<p class="warn">Kunde inte läsa data/recipes.json eller data/prices.json. Kör sidan via en webbserver, inte genom att dubbelklicka på filen.</p>'; });
 </script>
