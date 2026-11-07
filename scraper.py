@@ -1,6 +1,3 @@
-"""Hämtar recept från ica.se med en riktig webbläsare (Playwright) och sparar dem i data/recipes.json.
-Endast för eget bruk. Kör:  python3 scraper/scrape.py [max_antal_nya]
-"""
 import json
 import re
 import sys
@@ -12,8 +9,8 @@ from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parent.parent
-OUT = ROOT / "matplanerare" / "dataRecipies.json"
-EXTRA_URLS = ROOT / "scraper" / "urls.txt"  # egna recept-URL:er, en per rad (valfritt)
+OUT = ROOT / "." / "dataRecipies.json"
+#EXTRA_URLS = ROOT / "scraper" / "urls.txt"  # egna recept-URL:er, en per rad (valfritt)
 
 # Kategorisidor: tagg -> URL. Varje recept får de taggar för de listor det finns i.
 # Ändra siffran i pageSize om du vill ha fler eller färre recept per lista.
