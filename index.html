@@ -146,7 +146,13 @@ document.getElementById('f').addEventListener('submit', e => {
   e.preventDefault();
   const v = id => document.getElementById(id).value;
   const opts = {budget: +v('budget'), total: +v('total'), batch: +v('batch'), maxMin: +v('maxMin'), exclude: v('exclude'), protein: v('protein'), quick: document.getElementById('quick').checked};
-  document.getElementById('out').innerHTML = render(plan(opts), opts.budget);
+  const out = document.getElementById('out');
+  if (!recipes.length) {
+    out.innerHTML = '<p class="warn">Ingen receptdata är inläst. Kontrollera filnamnen i data-mappen och öppna webbläsarens konsol (Cmd+Option+J) för felmeddelandet.</p>';
+    return;
+  }
+  const priced = recipes.filter(r => recipeCost(r).perPortion > 0).length;
+  out.innerHTML = `<p class="meta">${recipes.length} recept inlästa, ${Object.keys(prices).length} priser, ${priced} recept har pris.</p>` + render(plan(opts), opts.budget);
 });
 
 Promise.all([
