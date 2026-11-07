@@ -38,7 +38,7 @@ button{
 }
 
 button:hover{
-    background-color: red;
+    background-color: crimson;
 }
 
 h1{
@@ -66,3 +66,8 @@ footer{
   #pantryInput{
     padding: 10px;
   }
+  
+a{
+    color:crimson;
+    font-size: larger;
+}

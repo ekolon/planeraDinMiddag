@@ -408,5 +408,9 @@
   "price": 150,
   "per": "kg",
   "stKg": 0.05
- }
+ },
+ "grytbitar av nöt": {
+  "price": 150,
+  "per": "kg"
+}
 }
