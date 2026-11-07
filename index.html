@@ -11,65 +11,36 @@
 </head>
 <body>
   <header>
-    <header>
-  <form id="authForm">
-    <input
-      type="email"
-      id="email"
-      placeholder="Email"
-      required
-    >
+    <form id="authForm">
+        <div id="loginFields">
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Lösenord" required>
+            <button type="submit">Logga in</button>
+            <button type="button" id="registerBtn">Skapa konto</button>
+        </div>
+    </form>
 
-    <input
-      type="password"
-      id="password"
-      placeholder="Lösenord"
-      required
-    >
-
-    <button type="submit">Logga in</button>
-
-    <button type="button" id="registerBtn">
-      Skapa konto
-    </button>
-
-    <button type="button" id="logoutBtn" hidden>
-      Logga ut
-    </button>
-  </form>
-
-  <p id="authStatus"></p>
+    <button type="button" id="logoutBtn" hidden>Logga ut</button>
+    <p id="authStatus"></p>
 </header>
-  </header>
 <main>
   <div></div>
   <div class="content">
     <h1>Matplanerare</h1>
     <p class="sub">Välj budget och antal portioner, så föreslås recept som går ihop.</p>
 
-    <form id="f">
-      <label>Typ av protein <br>
-        <select id="protein">
-          <option value="">Alla</option>
-          <option value="fisk">Fisk</option>
-          <option value="kott">Kött</option>
-          <option value="fagel">Fågel</option>
-        </select>
-      </label> <br>
-      <label class="chk">
-        <input id="quick" type="checkbox"> Bara recept under 30 min
-      </label> <br>
-      <label>Budget för inköp (kr, 0 = ingen gräns) <br>
-        <input id="budget" type="number" min="0" value="800">
-      </label> <br>
-      <label>Portioner per recept <br>
-        <input id="total" type="number" min="1" value="8">
-      </label> <br> <br>
-      <button type="submit">Föreslå måltider</button>
-    </form>
-    <br>
+    <div class="tabs" role="tablist" aria-label="Vy">
+      <button type="button" role="tab" id="tab-suggest" data-tab="suggest" aria-controls="panel-suggest">Förslag</button>
+      <button type="button" role="tab" id="tab-week" data-tab="week" aria-controls="panel-week">Veckans mat</button>
+    </div>
 
-    <section class="pantry">
+    <div id="panel-suggest" role="tabpanel" aria-labelledby="tab-suggest">
+  <!-- <form id="f"> … </form>
+  <section class="pantry"> … </section>
+  <label>Sortera recept …</label> -->
+
+
+      <section class="pantry">
       <h2>Mitt skafferi</h2>
       <p class="meta">Skriv det du har hemma. Recepten sorteras efter minst antal saknade ingredienser. Salt, peppar och kryddor räknas inte. Skafferiet sparas i din webbläsare.</p>
       <div class="pantry-row">
@@ -81,6 +52,31 @@
     </section>
     <br>
 
+    <form id="f">
+  <label>Typ av protein
+    <select id="protein">
+      <option value="">Alla</option>
+      <option value="fisk">Fisk</option>
+      <option value="kott">Kött</option>
+      <option value="fagel">Fågel</option>
+    </select>
+  </label>
+
+  <label>Budget (kr)
+    <input id="budget" type="number" min="0" value="800" title="0 = ingen gräns">
+  </label>
+
+  <label>Portioner
+    <input id="total" type="number" min="1" value="8">
+  </label>
+
+  <label class="chk">
+    <input id="quick" type="checkbox"> Snabba recept (under 30 min)
+  </label>
+  <br>
+  <button type="submit">Föreslå måltider</button>
+</form>
+
     <label>Sortera recept
       <select id="sort">
           <option value="relevance">Relevans</option>
@@ -88,8 +84,7 @@
       </select>
     </label>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="index.js"></script>
+    
 
     <div id="out"></div>
 
@@ -97,6 +92,18 @@
       <h2>Favoriter</h2>
       <div id="favs"></div>
     </section>
+
+    </div>
+
+    <div id="panel-week" role="tabpanel" aria-labelledby="tab-week" hidden>
+    <section id="weekSection" class="week">
+      <h2>Veckans mat</h2>
+      <p class="meta">Slumpade förslag, oberoende av vad du har hemma. Du får tre rätter per protein, och en av dem är ett storkok (6 portioner eller fler). Bocka i de måltider du vill ha, så byggs inköpslistan.</p>
+      <button type="button" id="weekGen">Generera min mat för en vecka</button>
+      <div id="weekOut"></div>
+    </section>
+    </div>
+
   </div>
   <div></div>
 </main>
@@ -104,7 +111,8 @@
   <p>Dedikerat till mamma &lt;3 || Upphovsrättigheter: ICA </p>
 </footer>
 
-
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="index.js"></script>
 
 </body>
 </html>

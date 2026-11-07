@@ -66,8 +66,204 @@ footer{
   #pantryInput{
     padding: 10px;
   }
-  
+
 a{
     color:crimson;
     font-size: larger;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+header form,
+#loginFields {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+header input,
+header button {
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+#loginFields {
+    flex-wrap: nowrap;
+}
+
+#authStatus {
+    margin: 0;
+}
+
+#logoutBtn {
+    padding: 5px 12px;
+    font-size: 14px;
+    width: auto;
+    height: auto;
+    margin: 0;
+}
+
+/* Veckans mat – lägg gärna in i index.css istället för en separat fil */
+.week { margin-top: 2rem; }
+.week-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+  align-items: start;
+}
+.week-meals h3, .week-list h3 { margin: 1rem 0 .4rem; }
+.week-list h3 { margin-top: 0; }
+.week-meal {
+  display: flex;
+  gap: .6rem;
+  align-items: flex-start;
+  padding: .55rem 0;
+  border-bottom: 1px solid rgba(128, 128, 128, .3);
+  cursor: pointer;
+}
+
+.recipe {
+  display: flex;
+  justify-content: space-between;   /* heart goes to the far right */
+  align-items: flex-start;
+  gap: .6rem;
+  padding: .55rem 0;
+  border-bottom: 1px solid rgba(128, 128, 128, .3);
+}
+.recipe > div:first-child { flex: 1; min-width: 0; }  /* text takes the free space */
+.recipe .price { margin-top: .35rem; }                /* total under the ingredients */
+.recipe .fav { flex: none; }
+.week-meal input { margin-top: .3rem; flex: none; }
+.week-meal:has(input:checked) a { font-weight: bold; }
+.week-meal .meta { display: block; }
+.badge {
+  display: inline-block;
+  margin-left: .4rem;
+  padding: 0 .45rem;
+  border: 1px solid currentColor;
+  border-radius: 1em;
+  font-size: .8em;
+}
+.week-list {
+  padding: 1rem;
+  border: 1px solid rgba(128, 128, 128, .4);
+}
+@media (min-width: 640px) {
+  .week-list { position: sticky; top: 1rem; max-height: calc(100vh - 2rem); overflow-y: auto; }
+}
+.shop { list-style: none; margin: .5rem 0; padding: 0; }
+.shop li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .25rem 0;
+  border-bottom: 1px dotted rgba(128, 128, 128, .4);
+}
+.shop-total { margin: .75rem 0 0; }
+
+.tabs {
+  display: flex;
+  gap: .25rem;
+  margin: 1rem 0 1.5rem;
+  border-bottom: 1px solid rgba(128, 128, 128, .4);
+}
+.tabs [role="tab"] {
+  margin-bottom: -1px;
+  padding: .6rem 1rem;
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  font: inherit;
+  color: inherit;
+  opacity: .65;
+  cursor: pointer;
+}
+.tabs [role="tab"][aria-selected="true"] {
+  border-bottom-color: currentColor;
+  font-weight: bold;
+  opacity: 1;
+}
+.tabs [role="tab"]:focus-visible { outline: 2px solid currentColor; outline-offset: -2px; }
+
+/* Form: fields centered on the page, button on its own row */
+#f {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  gap: .75rem 1rem;
+  font-size: medium;
+}
+
+#f label:not(.chk) {
+  display: grid;
+  gap: .25rem;
+  width: 170px;
+}
+
+/* "Snabba recept": no border, one line */
+#f .chk {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  height: 30px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+#f .chk input {
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: crimson;
+}
+
+#f button {
+  flex: 1 0 100%;          /* forces its own row */
+  max-width: 260px;
+  margin: .25rem auto 0;   /* centers it */
+}
+
+@media (max-width: 640px) {
+  /* Drop the empty side columns */
+  main {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+  main > div:not(.content) { display: none; }
+
+  h1 { font-size: 40px; }
+
+  /* Form: two fields per row, "quick" and button full width */
+  #f label:not(.chk) { width: calc(50% - .5rem); }
+  #f .chk { flex: 1 0 100%; justify-content: center; }
+  #f button { max-width: none; }
+
+  /* Larger tap targets */
+  select, input:not([type="checkbox"]) { height: 40px; }
+
+    /* Compact login bar */
+  header { padding: .5rem .75rem; }
+
+  #loginFields {
+    flex-wrap: wrap;
+    gap: .4rem;
+  }
+  #loginFields input,
+  #loginFields button {
+    flex: 1 1 calc(50% - .4rem);
+    width: auto;
+    min-width: 0;
+    height: 34px;
+    border-radius: 17px;
+    font-size: 16px;      /* 16px stops iOS from zooming in when you tap a field */
+  }
+  #authStatus { margin: .25rem 0 0; font-size: 14px; }
+
+  /* Tabs share the width */
+  .tabs [role="tab"] { flex: 1; padding: .6rem .5rem; }
 }

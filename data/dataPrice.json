@@ -1,416 +1,1478 @@
 {
- "nötfärs": {
-  "price": 109,
-  "per": "kg"
- },
- "blandfärs": {
-  "price": 99,
-  "per": "kg"
- },
- "kycklingfilé": {
-  "price": 129,
-  "per": "kg"
- },
- "kycklinglårfilé": {
-  "price": 109,
-  "per": "kg"
- },
- "fläskfilé": {
-  "price": 119,
-  "per": "kg"
- },
- "falukorv": {
-  "price": 55,
-  "per": "kg"
- },
- "lax": {
-  "price": 189,
-  "per": "kg"
- },
- "torsk": {
-  "price": 169,
-  "per": "kg"
- },
- "ägg": {
-  "price": 3,
-  "per": "st"
- },
- "mjölk": {
-  "price": 14,
-  "per": "l"
- },
- "matlagningsgrädde": {
-  "price": 28,
-  "per": "l"
- },
- "grädde": {
-  "price": 40,
-  "per": "l"
- },
- "crème fraiche": {
-  "price": 50,
-  "per": "kg"
- },
- "smör": {
-  "price": 85,
-  "per": "kg"
- },
- "ost": {
-  "price": 95,
-  "per": "kg"
- },
- "potatis": {
-  "price": 15,
-  "per": "kg"
- },
- "lök": {
-  "price": 20,
-  "per": "kg",
-  "stKg": 0.12
- },
- "vitlök": {
-  "price": 80,
-  "per": "kg",
-  "stKg": 0.005
- },
- "morot": {
-  "price": 15,
-  "per": "kg",
-  "stKg": 0.1
- },
- "paprika": {
-  "price": 50,
-  "per": "kg",
-  "stKg": 0.2
- },
- "tomat": {
-  "price": 40,
-  "per": "kg",
-  "stKg": 0.1
- },
- "krossade tomater": {
-  "price": 15,
-  "per": "kg"
- },
- "gurka": {
-  "price": 15,
-  "per": "st"
- },
- "broccoli": {
-  "price": 40,
-  "per": "kg"
- },
- "champinjoner": {
-  "price": 70,
-  "per": "kg"
- },
- "spagetti": {
-  "price": 25,
-  "per": "kg"
- },
- "pasta": {
-  "price": 25,
-  "per": "kg"
- },
- "ris": {
-  "price": 30,
-  "per": "kg"
- },
- "vetemjöl": {
-  "price": 15,
-  "per": "kg"
- },
- "linser": {
-  "price": 35,
-  "per": "kg"
- },
- "kikärtor": {
-  "price": 15,
-  "per": "kg"
- },
- "bröd": {
-  "price": 40,
-  "per": "kg"
- },
- "salt": {
-  "price": 12,
-  "per": "l"
- },
- "peppar": {
-  "price": 300,
-  "per": "l"
- },
- "olja": {
-  "price": 40,
-  "per": "l"
- },
- "olivolja": {
-  "price": 100,
-  "per": "l"
- },
- "senap": {
-  "price": 75,
-  "per": "l"
- },
- "soja": {
-  "price": 80,
-  "per": "l"
- },
- "majsstärkelse": {
-  "price": 35,
-  "per": "l"
- },
- "socker": {
-  "price": 18,
-  "per": "l"
- },
- "vinäger": {
-  "price": 30,
-  "per": "l"
- },
- "balsamvinäger": {
-  "price": 80,
-  "per": "l"
- },
- "majonnäs": {
-  "price": 50,
-  "per": "l"
- },
- "aioli": {
-  "price": 60,
-  "per": "l"
- },
- "citronjuice": {
-  "price": 60,
-  "per": "l"
- },
- "citronsaft": {
-  "price": 60,
-  "per": "l"
- },
- "vin": {
-  "price": 80,
-  "per": "l"
- },
- "gelé": {
-  "price": 60,
-  "per": "l"
- },
- "spiskummin": {
-  "price": 350,
-  "per": "l"
- },
- "oregano": {
-  "price": 600,
-  "per": "l"
- },
- "timjan": {
-  "price": 600,
-  "per": "l"
- },
- "dragon": {
-  "price": 600,
-  "per": "l"
- },
- "rosmarin": {
-  "price": 600,
-  "per": "l"
- },
- "persilja": {
-  "price": 150,
-  "per": "l"
- },
- "koriander": {
-  "price": 350,
-  "per": "l"
- },
- "gurkmeja": {
-  "price": 500,
-  "per": "l"
- },
- "fänkålsfrön": {
-  "price": 600,
-  "per": "l"
- },
- "chiliflakes": {
-  "price": 500,
-  "per": "l"
- },
- "tabasco": {
-  "price": 400,
-  "per": "l"
- },
- "chilisås": {
-  "price": 60,
-  "per": "l"
- },
- "worcestershiresås": {
-  "price": 80,
-  "per": "l"
- },
- "honung": {
-  "price": 120,
-  "per": "l"
- },
- "gräddfil": {
-  "price": 40,
-  "per": "l"
- },
- "smetana": {
-  "price": 45,
-  "per": "l"
- },
- "yoghurt": {
-  "price": 30,
-  "per": "l"
- },
- "kalvfond": {
-  "price": 120,
-  "per": "l"
- },
- "kycklingbuljong": {
-  "price": 10,
-  "per": "l"
- },
- "äppeljuice": {
-  "price": 25,
-  "per": "l"
- },
- "pinjenötter": {
-  "price": 400,
-  "per": "l"
- },
- "parmesan": {
-  "price": 200,
-  "per": "l"
- },
- "rucola": {
-  "price": 120,
-  "per": "kg"
- },
- "babyspenat": {
-  "price": 120,
-  "per": "kg"
- },
- "haricots verts": {
-  "price": 80,
-  "per": "kg"
- },
- "blåmusslor": {
-  "price": 70,
-  "per": "kg"
- },
- "räkor": {
-  "price": 150,
-  "per": "kg"
- },
- "lasagneplattor": {
-  "price": 50,
-  "per": "kg"
- },
- "högrevsfärs": {
-  "price": 120,
-  "per": "kg"
- },
- "fikon": {
-  "price": 150,
-  "per": "kg"
- },
- "lagerblad": {
-  "price": 1,
-  "per": "st"
- },
- "citron": {
-  "price": 6,
-  "per": "st"
- },
- "lime": {
-  "price": 8,
-  "per": "st"
- },
- "sallad": {
-  "price": 25,
-  "per": "st"
- },
- "pak choi": {
-  "price": 30,
-  "per": "st"
- },
- "avokado": {
-  "price": 15,
-  "per": "st"
- },
- "chilifrukt": {
-  "price": 5,
-  "per": "st"
- },
- "buljongtärning": {
-  "price": 3,
-  "per": "st"
- },
- "sardellfilé": {
-  "price": 3,
-  "per": "st"
- },
- "saffran": {
-  "price": 60,
-  "per": "st"
- },
- "kruka timjan": {
-  "price": 25,
-  "per": "st"
- },
- "kruka persilja": {
-  "price": 25,
-  "per": "st"
- },
- "kruka basilika": {
-  "price": 25,
-  "per": "st"
- },
- "kruka dragon": {
-  "price": 25,
-  "per": "st"
- },
- "kruka dill": {
-  "price": 25,
-  "per": "st"
- },
- "kruka koriander": {
-  "price": 25,
-  "per": "st"
- },
- "kruka sallad": {
-  "price": 25,
-  "per": "st"
- },
- "morö": {
-  "price": 15,
-  "per": "kg",
-  "stKg": 0.1
- },
- "palsternack": {
-  "price": 35,
-  "per": "kg",
-  "stKg": 0.15
- },
- "bacon": {
-  "price": 110,
-  "per": "kg",
-  "stKg": 0.14
- },
- "majs": {
-  "price": 40,
-  "per": "kg",
-  "stKg": 0.15
- },
- "jäst": {
-  "price": 150,
-  "per": "kg",
-  "stKg": 0.05
- },
- "grytbitar av nöt": {
-  "price": 150,
-  "per": "kg"
-}
+  "aioli": {
+    "price": 90,
+    "per": "kg"
+  },
+  "ankbröst": {
+    "price": 260,
+    "per": "kg"
+  },
+  "ansjovis": {
+    "price": 450,
+    "per": "kg"
+  },
+  "apelsin": {
+    "price": 5,
+    "per": "st"
+  },
+  "aubergine": {
+    "price": 18,
+    "per": "st"
+  },
+  "avokado": {
+    "price": 14,
+    "per": "st"
+  },
+  "ädelost": {
+    "price": 220,
+    "per": "kg"
+  },
+  "ägg": {
+    "price": 3.5,
+    "per": "st"
+  },
+  "äggula": {
+    "price": 3.5,
+    "per": "st"
+  },
+  "älgfärs": {
+    "price": 220,
+    "per": "kg"
+  },
+  "älgfilé": {
+    "price": 750,
+    "per": "kg"
+  },
+  "äppelcidervinäger": {
+    "price": 50,
+    "per": "l"
+  },
+  "äppelmos": {
+    "price": 30,
+    "per": "kg"
+  },
+  "äpple": {
+    "price": 4.5,
+    "per": "st"
+  },
+  "ärtskott": {
+    "price": 25,
+    "per": "st"
+  },
+  "ättiksprit": {
+    "price": 25,
+    "per": "l"
+  },
+  "bacon": {
+    "price": 150,
+    "per": "kg"
+  },
+  "baguette": {
+    "price": 15,
+    "per": "st"
+  },
+  "balsamvinäger": {
+    "price": 60,
+    "per": "l"
+  },
+  "banan": {
+    "price": 3,
+    "per": "st"
+  },
+  "basilika": {
+    "price": 25,
+    "per": "st"
+  },
+  "bbq-sås": {
+    "price": 60,
+    "per": "l"
+  },
+  "benfri fläskkarré": {
+    "price": 100,
+    "per": "kg"
+  },
+  "biff": {
+    "price": 300,
+    "per": "kg"
+  },
+  "björnbär": {
+    "price": 130,
+    "per": "kg"
+  },
+  "blandfärs": {
+    "price": 105,
+    "per": "kg"
+  },
+  "blåmusslor": {
+    "price": 60,
+    "per": "kg"
+  },
+  "blomkål": {
+    "price": 22,
+    "per": "st"
+  },
+  "broccoli": {
+    "price": 40,
+    "per": "kg"
+  },
+  "bröd": {
+    "price": 45,
+    "per": "kg"
+  },
+  "brödkrutonger": {
+    "price": 100,
+    "per": "kg"
+  },
+  "brysselkål": {
+    "price": 60,
+    "per": "kg"
+  },
+  "burrata": {
+    "price": 240,
+    "per": "kg"
+  },
+  "cantaloupemelon": {
+    "price": 25,
+    "per": "st"
+  },
+  "champinjoner": {
+    "price": 80,
+    "per": "kg"
+  },
+  "cheddarost": {
+    "price": 150,
+    "per": "kg"
+  },
+  "chili": {
+    "price": 3,
+    "per": "st"
+  },
+  "chiliflakes": {
+    "price": 700,
+    "per": "kg"
+  },
+  "chilipulver": {
+    "price": 650,
+    "per": "kg"
+  },
+  "chilisås": {
+    "price": 80,
+    "per": "l"
+  },
+  "chipotlepaste": {
+    "price": 400,
+    "per": "kg"
+  },
+  "chorizo": {
+    "price": 200,
+    "per": "kg"
+  },
+  "ciabattabröd": {
+    "price": 12,
+    "per": "st"
+  },
+  "citron": {
+    "price": 5,
+    "per": "st"
+  },
+  "citronmeliss": {
+    "price": 25,
+    "per": "st"
+  },
+  "cornichons": {
+    "price": 70,
+    "per": "kg"
+  },
+  "cosmopolitansallad": {
+    "price": 25,
+    "per": "st"
+  },
+  "couscous": {
+    "price": 40,
+    "per": "kg"
+  },
+  "crème av basilika": {
+    "price": "",
+    "per": ""
+  },
+  "crème fraiche": {
+    "price": 75,
+    "per": "l"
+  },
+  "curry": {
+    "price": 450,
+    "per": "kg"
+  },
+  "dijonsenap": {
+    "price": 120,
+    "per": "kg"
+  },
+  "dill": {
+    "price": 25,
+    "per": "st"
+  },
+  "dillmajonnäs": {
+    "price": "",
+    "per": ""
+  },
+  "dragon": {
+    "price": 25,
+    "per": "st"
+  },
+  "enbär": {
+    "price": 1500,
+    "per": "kg"
+  },
+  "entrecôte": {
+    "price": 380,
+    "per": "kg"
+  },
+  "falukorv": {
+    "price": 70,
+    "per": "kg"
+  },
+  "fänkål": {
+    "price": 18,
+    "per": "st"
+  },
+  "fänkålsfrön": {
+    "price": 800,
+    "per": "kg"
+  },
+  "färs": {
+    "price": 110,
+    "per": "kg"
+  },
+  "färskost": {
+    "price": 125,
+    "per": "kg"
+  },
+  "fetaost": {
+    "price": 135,
+    "per": "kg"
+  },
+  "fettuccine": {
+    "price": 120,
+    "per": "kg"
+  },
+  "fikon": {
+    "price": 160,
+    "per": "kg"
+  },
+  "fisk": {
+    "price": 200,
+    "per": "kg"
+  },
+  "fjällrödingfilé": {
+    "price": 350,
+    "per": "kg"
+  },
+  "flankstek": {
+    "price": 300,
+    "per": "kg"
+  },
+  "fläsk": {
+    "price": 100,
+    "per": "kg"
+  },
+  "fläskfärs": {
+    "price": 80,
+    "per": "kg"
+  },
+  "fläskfilé": {
+    "price": 110,
+    "per": "kg"
+  },
+  "fläskytterfilé": {
+    "price": 120,
+    "per": "kg"
+  },
+  "flytande honung": {
+    "price": 115,
+    "per": "kg"
+  },
+  "flytande viltfond": {
+    "price": 130,
+    "per": "l"
+  },
+  "formbar sojafärs": {
+    "price": 110,
+    "per": "kg"
+  },
+  "fransk löksoppa": {
+    "price": 14,
+    "per": "st"
+  },
+  "fransk senap": {
+    "price": 100,
+    "per": "kg"
+  },
+  "gari": {
+    "price": 130,
+    "per": "kg"
+  },
+  "gemsallad": {
+    "price": 13,
+    "per": "st"
+  },
+  "getost": {
+    "price": 220,
+    "per": "kg"
+  },
+  "gnocchi": {
+    "price": 60,
+    "per": "kg"
+  },
+  "gochujang chilipasta": {
+    "price": 225,
+    "per": "kg"
+  },
+  "gorgonzolaost": {
+    "price": 220,
+    "per": "kg"
+  },
+  "gösfilé": {
+    "price": 250,
+    "per": "kg"
+  },
+  "grana padano": {
+    "price": 250,
+    "per": "kg"
+  },
+  "grädde": {
+    "price": 48,
+    "per": "l"
+  },
+  "gräddfil": {
+    "price": 35,
+    "per": "l"
+  },
+  "gräslök": {
+    "price": 22,
+    "per": "st"
+  },
+  "grillkrydda": {
+    "price": 350,
+    "per": "kg"
+  },
+  "grillost": {
+    "price": 140,
+    "per": "kg"
+  },
+  "gröna ärtor": {
+    "price": 35,
+    "per": "kg"
+  },
+  "gröna oliver": {
+    "price": 80,
+    "per": "kg"
+  },
+  "grönkål": {
+    "price": 120,
+    "per": "kg"
+  },
+  "grönsaksbuljong": {
+    "price": 1.8,
+    "per": "st"
+  },
+  "grytbitar": {
+    "price": 160,
+    "per": "kg"
+  },
+  "guacamole": {
+    "price": 125,
+    "per": "kg"
+  },
+  "gula russin": {
+    "price": 70,
+    "per": "kg"
+  },
+  "gurka": {
+    "price": 12,
+    "per": "st"
+  },
+  "gurkmeja": {
+    "price": 600,
+    "per": "kg"
+  },
+  "halloumi": {
+    "price": 170,
+    "per": "kg"
+  },
+  "halloumiburgare": {
+    "price": 190,
+    "per": "kg"
+  },
+  "hamburgerbröd": {
+    "price": 5,
+    "per": "st"
+  },
+  "hamburgerost": {
+    "price": 150,
+    "per": "kg"
+  },
+  "haricots verts": {
+    "price": 100,
+    "per": "kg"
+  },
+  "hasselnötter": {
+    "price": 250,
+    "per": "kg"
+  },
+  "hjärtsallad": {
+    "price": 13,
+    "per": "st"
+  },
+  "hjortinnerfilé": {
+    "price": 800,
+    "per": "kg"
+  },
+  "honung": {
+    "price": 115,
+    "per": "kg"
+  },
+  "högrev": {
+    "price": 190,
+    "per": "kg"
+  },
+  "högrevsfärs": {
+    "price": 150,
+    "per": "kg"
+  },
+  "hönsbuljong": {
+    "price": 1.8,
+    "per": "st"
+  },
+  "ingefära": {
+    "price": 90,
+    "per": "kg"
+  },
+  "inlagd jalapeño": {
+    "price": 100,
+    "per": "kg"
+  },
+  "inlagda skivade jalapeño": {
+    "price": 100,
+    "per": "kg"
+  },
+  "isbergssallad": {
+    "price": 18,
+    "per": "st"
+  },
+  "jalapeño": {
+    "price": 100,
+    "per": "kg"
+  },
+  "japansk soja": {
+    "price": 150,
+    "per": "l"
+  },
+  "jäst": {
+    "price": 160,
+    "per": "kg"
+  },
+  "jordärtskocka": {
+    "price": 80,
+    "per": "kg"
+  },
+  "jordnötter": {
+    "price": 120,
+    "per": "kg"
+  },
+  "kalamataoliver": {
+    "price": 150,
+    "per": "kg"
+  },
+  "kalkonfilé": {
+    "price": 150,
+    "per": "kg"
+  },
+  "kallrökt lax": {
+    "price": 380,
+    "per": "kg"
+  },
+  "kalvfilé": {
+    "price": 650,
+    "per": "kg"
+  },
+  "kalvfond": {
+    "price": 130,
+    "per": "l"
+  },
+  "kalvytterfilé": {
+    "price": 650,
+    "per": "kg"
+  },
+  "kammusslor": {
+    "price": 350,
+    "per": "kg"
+  },
+  "kanel": {
+    "price": 500,
+    "per": "kg"
+  },
+  "kantareller": {
+    "price": 300,
+    "per": "kg"
+  },
+  "kapris": {
+    "price": 200,
+    "per": "kg"
+  },
+  "kålrot": {
+    "price": 20,
+    "per": "kg"
+  },
+  "ketchup": {
+    "price": 50,
+    "per": "kg"
+  },
+  "kidneybönor": {
+    "price": 25,
+    "per": "kg"
+  },
+  "kinesisk soja": {
+    "price": 150,
+    "per": "l"
+  },
+  "klassisk kebab": {
+    "price": 145,
+    "per": "kg"
+  },
+  "kokosmjölk": {
+    "price": 45,
+    "per": "l"
+  },
+  "konc äppeljuice": {
+    "price": 60,
+    "per": "l"
+  },
+  "konc fiskfond": {
+    "price": 140,
+    "per": "l"
+  },
+  "konc grönsaksfond": {
+    "price": 140,
+    "per": "l"
+  },
+  "konc kycklingfond": {
+    "price": 140,
+    "per": "l"
+  },
+  "konc oxfond": {
+    "price": 140,
+    "per": "l"
+  },
+  "konc viltfond": {
+    "price": 140,
+    "per": "l"
+  },
+  "konjak": {
+    "price": "",
+    "per": ""
+  },
+  "koriander": {
+    "price": 25,
+    "per": "st"
+  },
+  "korv": {
+    "price": 90,
+    "per": "kg"
+  },
+  "körvel": {
+    "price": 25,
+    "per": "st"
+  },
+  "köttbuljong": {
+    "price": 1.8,
+    "per": "st"
+  },
+  "krispig chiliolja": {
+    "price": 285,
+    "per": "kg"
+  },
+  "kronärtskocka": {
+    "price": 20,
+    "per": "st"
+  },
+  "kronärtskocksbottnar": {
+    "price": 100,
+    "per": "kg"
+  },
+  "kronärtskockscrème": {
+    "price": 215,
+    "per": "kg"
+  },
+  "kronhjortsskav": {
+    "price": "",
+    "per": ""
+  },
+  "krossade tomater": {
+    "price": 25,
+    "per": "kg"
+  },
+  "krutonger": {
+    "price": 100,
+    "per": "kg"
+  },
+  "kummin": {
+    "price": 600,
+    "per": "kg"
+  },
+  "kvarg": {
+    "price": 45,
+    "per": "kg"
+  },
+  "kyckling": {
+    "price": 70,
+    "per": "kg"
+  },
+  "kycklingben": {
+    "price": 60,
+    "per": "kg"
+  },
+  "kycklingbuljong": {
+    "price": 1.8,
+    "per": "st"
+  },
+  "kycklingfilé": {
+    "price": 130,
+    "per": "kg"
+  },
+  "kycklingfond": {
+    "price": 140,
+    "per": "l"
+  },
+  "kycklingklubbor": {
+    "price": 55,
+    "per": "kg"
+  },
+  "kycklinglår": {
+    "price": 80,
+    "per": "kg"
+  },
+  "kycklinglårfilé": {
+    "price": 110,
+    "per": "kg"
+  },
+  "lagerblad": {
+    "price": 0.5,
+    "per": "st"
+  },
+  "lagrad ost": {
+    "price": 150,
+    "per": "kg"
+  },
+  "lammkött": {
+    "price": 250,
+    "per": "kg"
+  },
+  "lantbröd": {
+    "price": 50,
+    "per": "kg"
+  },
+  "lasagneplattor": {
+    "price": 60,
+    "per": "kg"
+  },
+  "laxfilé": {
+    "price": 230,
+    "per": "kg"
+  },
+  "lättöl": {
+    "price": 25,
+    "per": "l"
+  },
+  "lime": {
+    "price": 4,
+    "per": "st"
+  },
+  "limeblad": {
+    "price": "",
+    "per": ""
+  },
+  "lingon": {
+    "price": 80,
+    "per": "kg"
+  },
+  "lingonsylt": {
+    "price": 45,
+    "per": "kg"
+  },
+  "ljus sirap": {
+    "price": 40,
+    "per": "kg"
+  },
+  "ljust öl": {
+    "price": 25,
+    "per": "l"
+  },
+  "lök": {
+    "price": 2.5,
+    "per": "st"
+  },
+  "lökpulver": {
+    "price": 400,
+    "per": "kg"
+  },
+  "lufttorkad skinka": {
+    "price": 450,
+    "per": "kg"
+  },
+  "madeira": {
+    "price": "",
+    "per": ""
+  },
+  "majonnäs": {
+    "price": 75,
+    "per": "kg"
+  },
+  "majs": {
+    "price": 40,
+    "per": "kg"
+  },
+  "majskycklingfilé": {
+    "price": 180,
+    "per": "kg"
+  },
+  "majsstärkelse": {
+    "price": 60,
+    "per": "kg"
+  },
+  "makrill": {
+    "price": 180,
+    "per": "kg"
+  },
+  "malda nejlikor": {
+    "price": 1000,
+    "per": "kg"
+  },
+  "malen ingefära": {
+    "price": 700,
+    "per": "kg"
+  },
+  "malen koriander": {
+    "price": 600,
+    "per": "kg"
+  },
+  "malen spiskummin": {
+    "price": 600,
+    "per": "kg"
+  },
+  "mandel": {
+    "price": 180,
+    "per": "kg"
+  },
+  "mandelspån": {
+    "price": 300,
+    "per": "kg"
+  },
+  "mango chutney": {
+    "price": 120,
+    "per": "kg"
+  },
+  "margarin": {
+    "price": 60,
+    "per": "kg"
+  },
+  "matlagningsyoghurt": {
+    "price": 40,
+    "per": "l"
+  },
+  "matvete": {
+    "price": 40,
+    "per": "kg"
+  },
+  "matyoghurt": {
+    "price": 40,
+    "per": "l"
+  },
+  "mejram": {
+    "price": 1500,
+    "per": "kg"
+  },
+  "mirin": {
+    "price": 230,
+    "per": "l"
+  },
+  "mjöl": {
+    "price": 14,
+    "per": "kg"
+  },
+  "mjölk": {
+    "price": 14,
+    "per": "l"
+  },
+  "mjuka tortillabröd": {
+    "price": 3,
+    "per": "st"
+  },
+  "mjukost med smak av paprika": {
+    "price": 100,
+    "per": "kg"
+  },
+  "morot": {
+    "price": 2,
+    "per": "st"
+  },
+  "mortadella": {
+    "price": 160,
+    "per": "kg"
+  },
+  "mörkt muscovadosocker": {
+    "price": 60,
+    "per": "kg"
+  },
+  "mynta": {
+    "price": 25,
+    "per": "st"
+  },
+  "nachochips": {
+    "price": 110,
+    "per": "kg"
+  },
+  "naturell yoghurt": {
+    "price": 30,
+    "per": "l"
+  },
+  "nduja bredbar salami": {
+    "price": "",
+    "per": ""
+  },
+  "nektariner": {
+    "price": 6,
+    "per": "st"
+  },
+  "noriark": {
+    "price": 2.5,
+    "per": "st"
+  },
+  "nötbog": {
+    "price": 130,
+    "per": "kg"
+  },
+  "nötfärs": {
+    "price": 150,
+    "per": "kg"
+  },
+  "okokt quinoa": {
+    "price": 80,
+    "per": "kg"
+  },
+  "olivolja": {
+    "price": 110,
+    "per": "l"
+  },
+  "olja": {
+    "price": 35,
+    "per": "l"
+  },
+  "oregano": {
+    "price": 1500,
+    "per": "kg"
+  },
+  "ost": {
+    "price": 130,
+    "per": "kg"
+  },
+  "oxfilé": {
+    "price": 650,
+    "per": "kg"
+  },
+  "oxfond": {
+    "price": 140,
+    "per": "l"
+  },
+  "öl mörk lager": {
+    "price": 30,
+    "per": "l"
+  },
+  "örter": {
+    "price": "",
+    "per": ""
+  },
+  "pak choi": {
+    "price": 12,
+    "per": "st"
+  },
+  "palsternacka": {
+    "price": 5,
+    "per": "st"
+  },
+  "panerad spätta": {
+    "price": 130,
+    "per": "kg"
+  },
+  "panko": {
+    "price": 100,
+    "per": "kg"
+  },
+  "paprika": {
+    "price": 10,
+    "per": "st"
+  },
+  "paprikapulver": {
+    "price": 600,
+    "per": "kg"
+  },
+  "parmesan": {
+    "price": 330,
+    "per": "kg"
+  },
+  "pasta": {
+    "price": 25,
+    "per": "kg"
+  },
+  "pastrami": {
+    "price": 300,
+    "per": "kg"
+  },
+  "pärlcouscous": {
+    "price": 60,
+    "per": "kg"
+  },
+  "pecorinoost": {
+    "price": 300,
+    "per": "kg"
+  },
+  "persilja": {
+    "price": 25,
+    "per": "st"
+  },
+  "persiljerot": {
+    "price": 8,
+    "per": "st"
+  },
+  "persiljerötter": {
+    "price": 8,
+    "per": "st"
+  },
+  "persiljesmör": {
+    "price": 220,
+    "per": "kg"
+  },
+  "picklad rödlök": {
+    "price": "",
+    "per": ""
+  },
+  "pimiento de padron": {
+    "price": "",
+    "per": ""
+  },
+  "pinjenötskärnor": {
+    "price": 700,
+    "per": "kg"
+  },
+  "pinjenötter": {
+    "price": 700,
+    "per": "kg"
+  },
+  "pistagenötter": {
+    "price": 400,
+    "per": "kg"
+  },
+  "plommon": {
+    "price": 50,
+    "per": "kg"
+  },
+  "polentagryn": {
+    "price": 40,
+    "per": "kg"
+  },
+  "pommes frites": {
+    "price": 30,
+    "per": "kg"
+  },
+  "ponzu- sojasås med citron": {
+    "price": 250,
+    "per": "l"
+  },
+  "portabellosvamp": {
+    "price": 110,
+    "per": "kg"
+  },
+  "potatis": {
+    "price": 15,
+    "per": "kg"
+  },
+  "pressgurka": {
+    "price": 12,
+    "per": "st"
+  },
+  "pumpa": {
+    "price": 30,
+    "per": "kg"
+  },
+  "pumpakärnor": {
+    "price": 250,
+    "per": "kg"
+  },
+  "purjolök": {
+    "price": 8,
+    "per": "st"
+  },
+  "ramslök": {
+    "price": "",
+    "per": ""
+  },
+  "rapsolja": {
+    "price": 35,
+    "per": "l"
+  },
+  "räkor": {
+    "price": 200,
+    "per": "kg"
+  },
+  "rårörda lingon": {
+    "price": 60,
+    "per": "kg"
+  },
+  "regnbågslax": {
+    "price": 220,
+    "per": "kg"
+  },
+  "renfilé": {
+    "price": "",
+    "per": ""
+  },
+  "ricottaost": {
+    "price": 100,
+    "per": "kg"
+  },
+  "ris": {
+    "price": 30,
+    "per": "kg"
+  },
+  "risnudlar": {
+    "price": 80,
+    "per": "kg"
+  },
+  "risotto med parmesan": {
+    "price": 115,
+    "per": "kg"
+  },
+  "risvinäger": {
+    "price": 160,
+    "per": "l"
+  },
+  "rosmarin": {
+    "price": 1500,
+    "per": "kg"
+  },
+  "rostad klyftpotatis": {
+    "price": "",
+    "per": ""
+  },
+  "rostad lök": {
+    "price": 130,
+    "per": "kg"
+  },
+  "rotfruktsgratäng": {
+    "price": 70,
+    "per": "kg"
+  },
+  "rotselleri": {
+    "price": 25,
+    "per": "kg"
+  },
+  "röd curry": {
+    "price": 180,
+    "per": "kg"
+  },
+  "röd vinbärsgelé": {
+    "price": 70,
+    "per": "kg"
+  },
+  "röda vinbär": {
+    "price": 130,
+    "per": "kg"
+  },
+  "rödbeta": {
+    "price": 20,
+    "per": "kg"
+  },
+  "röding": {
+    "price": 350,
+    "per": "kg"
+  },
+  "rödlök": {
+    "price": 4,
+    "per": "st"
+  },
+  "rödvin": {
+    "price": 45,
+    "per": "l"
+  },
+  "rödvinssås": {
+    "price": 100,
+    "per": "l"
+  },
+  "rödvinsvinäger": {
+    "price": 60,
+    "per": "l"
+  },
+  "rökig bbq-sås": {
+    "price": 60,
+    "per": "l"
+  },
+  "rökig whisky": {
+    "price": "",
+    "per": ""
+  },
+  "rökt lax": {
+    "price": 380,
+    "per": "kg"
+  },
+  "rökt paprikapulver": {
+    "price": 650,
+    "per": "kg"
+  },
+  "rökt skinka": {
+    "price": 200,
+    "per": "kg"
+  },
+  "rucola": {
+    "price": 230,
+    "per": "kg"
+  },
+  "ryggbiff": {
+    "price": 480,
+    "per": "kg"
+  },
+  "saffran": {
+    "price": 25,
+    "per": "st"
+  },
+  "saganaki": {
+    "price": 170,
+    "per": "kg"
+  },
+  "salami": {
+    "price": 250,
+    "per": "kg"
+  },
+  "sallad": {
+    "price": 18,
+    "per": "st"
+  },
+  "salladskål": {
+    "price": 20,
+    "per": "st"
+  },
+  "salladslök": {
+    "price": 15,
+    "per": "st"
+  },
+  "salviablad": {
+    "price": 25,
+    "per": "st"
+  },
+  "sambal oelek": {
+    "price": 80,
+    "per": "kg"
+  },
+  "sardellfiléer": {
+    "price": 450,
+    "per": "kg"
+  },
+  "schalottenlök": {
+    "price": 60,
+    "per": "kg"
+  },
+  "sejfilé": {
+    "price": 150,
+    "per": "kg"
+  },
+  "selleristjälkar": {
+    "price": 35,
+    "per": "kg"
+  },
+  "senap": {
+    "price": 100,
+    "per": "kg"
+  },
+  "serranoskinka": {
+    "price": 400,
+    "per": "kg"
+  },
+  "sesamfrön": {
+    "price": 150,
+    "per": "kg"
+  },
+  "sesamolja": {
+    "price": 250,
+    "per": "l"
+  },
+  "sidfläsk": {
+    "price": 110,
+    "per": "kg"
+  },
+  "sirap": {
+    "price": 40,
+    "per": "kg"
+  },
+  "skinka": {
+    "price": 180,
+    "per": "kg"
+  },
+  "skivat rökt kalkonbröst": {
+    "price": 220,
+    "per": "kg"
+  },
+  "smetana": {
+    "price": 40,
+    "per": "l"
+  },
+  "smör": {
+    "price": 150,
+    "per": "kg"
+  },
+  "smördeg": {
+    "price": 100,
+    "per": "kg"
+  },
+  "socker": {
+    "price": 20,
+    "per": "kg"
+  },
+  "sockerärtor": {
+    "price": 100,
+    "per": "kg"
+  },
+  "soja": {
+    "price": 150,
+    "per": "l"
+  },
+  "sojabönor": {
+    "price": 70,
+    "per": "kg"
+  },
+  "soltorkade tomater": {
+    "price": 200,
+    "per": "kg"
+  },
+  "sötpotatisstrips": {
+    "price": 90,
+    "per": "kg"
+  },
+  "sparris": {
+    "price": 180,
+    "per": "kg"
+  },
+  "spenat": {
+    "price": 100,
+    "per": "kg"
+  },
+  "spiskummin": {
+    "price": 600,
+    "per": "kg"
+  },
+  "srirachamajonnäs": {
+    "price": 100,
+    "per": "kg"
+  },
+  "stjärnanis": {
+    "price": 1500,
+    "per": "kg"
+  },
+  "ströbröd": {
+    "price": 30,
+    "per": "kg"
+  },
+  "sugarsnaps": {
+    "price": 110,
+    "per": "kg"
+  },
+  "surimi": {
+    "price": 110,
+    "per": "kg"
+  },
+  "svamp": {
+    "price": 80,
+    "per": "kg"
+  },
+  "svart vinbärsgelé": {
+    "price": 70,
+    "per": "kg"
+  },
+  "svarta kärnfria oliver": {
+    "price": 80,
+    "per": "kg"
+  },
+  "svarta vinbär": {
+    "price": 130,
+    "per": "kg"
+  },
+  "sweet chilisås": {
+    "price": 50,
+    "per": "l"
+  },
+  "syltlök": {
+    "price": 60,
+    "per": "kg"
+  },
+  "tabasco": {
+    "price": 300,
+    "per": "l"
+  },
+  "tacokrydda": {
+    "price": 250,
+    "per": "kg"
+  },
+  "tacosås": {
+    "price": 50,
+    "per": "kg"
+  },
+  "timjan": {
+    "price": 1500,
+    "per": "kg"
+  },
+  "tjocka revbensspjäll av rapsgris": {
+    "price": 90,
+    "per": "kg"
+  },
+  "tomat": {
+    "price": 35,
+    "per": "kg"
+  },
+  "tomater på burk": {
+    "price": 25,
+    "per": "kg"
+  },
+  "tomatpuré": {
+    "price": 70,
+    "per": "kg"
+  },
+  "tomatsås": {
+    "price": 30,
+    "per": "kg"
+  },
+  "tonfisk": {
+    "price": 250,
+    "per": "kg"
+  },
+  "torskfilé": {
+    "price": 230,
+    "per": "kg"
+  },
+  "torskrygg": {
+    "price": 180,
+    "per": "kg"
+  },
+  "tortillabröd": {
+    "price": 3,
+    "per": "st"
+  },
+  "tsatsiki": {
+    "price": 50,
+    "per": "kg"
+  },
+  "tunnbröd": {
+    "price": 50,
+    "per": "kg"
+  },
+  "turkisk yoghurt": {
+    "price": 35,
+    "per": "l"
+  },
+  "valnötskärnor": {
+    "price": 250,
+    "per": "kg"
+  },
+  "valnötter": {
+    "price": 250,
+    "per": "kg"
+  },
+  "varmrökt sidfläsk": {
+    "price": 120,
+    "per": "kg"
+  },
+  "västerbottensost": {
+    "price": 200,
+    "per": "kg"
+  },
+  "vermouth": {
+    "price": "",
+    "per": ""
+  },
+  "vetemjöl": {
+    "price": 14,
+    "per": "kg"
+  },
+  "viltfond": {
+    "price": 140,
+    "per": "l"
+  },
+  "vinäger": {
+    "price": 30,
+    "per": "l"
+  },
+  "vinägrett": {
+    "price": "",
+    "per": ""
+  },
+  "vindruvor": {
+    "price": 60,
+    "per": "kg"
+  },
+  "vinkokta musslor": {
+    "price": 80,
+    "per": "kg"
+  },
+  "vit balsamvinäger": {
+    "price": 80,
+    "per": "l"
+  },
+  "vit fisk": {
+    "price": 200,
+    "per": "kg"
+  },
+  "vita bönor": {
+    "price": 25,
+    "per": "kg"
+  },
+  "vita bönor i tomatsås": {
+    "price": 30,
+    "per": "kg"
+  },
+  "vitkål": {
+    "price": 15,
+    "per": "kg"
+  },
+  "vitlök": {
+    "price": 6,
+    "per": "st"
+  },
+  "vitlöksbaguette": {
+    "price": 15,
+    "per": "st"
+  },
+  "vitlökspulver": {
+    "price": 450,
+    "per": "kg"
+  },
+  "vitt surdegsbröd": {
+    "price": 50,
+    "per": "kg"
+  },
+  "vitt vin": {
+    "price": 45,
+    "per": "l"
+  },
+  "vitvinsvinäger": {
+    "price": 50,
+    "per": "l"
+  },
+  "wasabipasta": {
+    "price": 300,
+    "per": "kg"
+  },
+  "worcestershiresås": {
+    "price": 100,
+    "per": "l"
+  },
+  "zucchini": {
+    "price": 10,
+    "per": "st"
+  }
 }

@@ -131,10 +131,11 @@ function card(a) {
     ? `<strong>${kr(a.cost)}</strong> <span class="meta">att köpa${a.unknown ? ` (+${a.unknown} utan pris)` : ''}</span>`
     : '';
   return `<div class="recipe"><div>
-      <a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.name)}</a>
-      <div class="meta">${a.portions} portioner${r.minutes ? ' · ' + r.minutes + ' min' : ''}</div>
-      ${missing}
-    </div><div>${buy} ${favBtn(recipeKey(r))}</div></div>`;
+    <a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.name)}</a>
+    <div class="meta">${a.portions} portioner${r.minutes ? ' · ' + r.minutes + ' min' : ''}</div>
+    ${missing}
+    ${buy ? `<div class="price">${buy}</div>` : ''}
+  </div>${favBtn(recipeKey(r))}</div>`;
 }
 
 function renderResults() {
@@ -245,14 +246,12 @@ async function loadJSON(url) {
     renderFavs();
     run();
 
-    // Check whether a user is already logged in
     const { data: { session } } = await db.auth.getSession();
 
-    if (session) {
-      $('authStatus').textContent = 'Inloggad!';
-      $('logoutBtn').hidden = false;
+    updateAuthUI(!!session);
 
-      await loadUserData();
+    if (session) {
+        await loadUserData();
     }
 
   } catch (e) {
@@ -276,18 +275,19 @@ async function register(email, password) {
 
 async function login(email, password) {
   const { data, error } = await db.auth.signInWithPassword({
-    email,
+    email: email.trim(),
     password
   });
 
   if (error) {
-    alert(error.message);
+    console.error('Login error:', error);
+    $('authStatus').textContent = error.message;
     return;
   }
 
+  updateAuthUI(true);
   await loadUserData();
 }
-
 async function logout() {
   const { error } = await db.auth.signOut();
 
@@ -371,3 +371,198 @@ $('registerBtn').addEventListener('click', async () => {
 });
 
 $('logoutBtn').addEventListener('click', logout);
+
+function updateAuthUI(loggedIn) {
+    $('loginFields').style.display = loggedIn ? 'none' : 'flex';
+    $('logoutBtn').hidden = !loggedIn;
+}
+
+// ---------- Veckans mat ----------
+// Kräver index.js (använder recipes, prices, $, esc, kr, fold, isStaple, ingCost, recipeKey, UNIT, STORE).
+// Läses in EFTER index.js.
+
+const WEEK_CATS = [
+  { tag: 'kott',  label: 'Kött' },
+  { tag: 'fagel', label: 'Fågel' },
+  { tag: 'fisk',  label: 'Fisk' }
+];
+const BIG = 6; // servings >= BIG räknas som storkok
+const isBig = r => (r.servings || 0) >= BIG;
+
+let week = STORE.get('mp_week', { picks: [], checked: [] });
+
+const shuffle = a => {
+  const x = [...a];
+  for (let i = x.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [x[i], x[j]] = [x[j], x[i]];
+  }
+  return x;
+};
+
+const num = n => String(+n.toFixed(n < 10 ? 1 : 0)).replace('.', ',');
+
+// ---------- Slumpa fram veckan ----------
+// Tre rätter per protein, varav en storkok. Samma recept används aldrig två gånger,
+// även om det har flera protein-taggar.
+function generateWeek() {
+  const out = $('weekOut');
+  if (!recipes.length) {
+    out.innerHTML = '<p class="warn">Recepten är inte inlästa än. Försök igen om en stund.</p>';
+    return;
+  }
+  const used = new Set();
+  const picks = [];
+  for (const c of WEEK_CATS) {
+    const pool = shuffle(recipes.filter(r => (r.tags || []).includes(c.tag) && !used.has(recipeKey(r))));
+    const big = pool.find(isBig);
+    const chosen = big ? [big] : [];
+    // Resten helst "vanliga" rätter, så att det bara är ett storkok per protein.
+    const rest = [...pool.filter(r => !isBig(r)), ...pool.filter(r => isBig(r) && r !== big)];
+    for (const r of rest) { if (chosen.length >= 3) break; chosen.push(r); }
+    for (const r of chosen) { used.add(recipeKey(r)); picks.push({ key: recipeKey(r), cat: c.tag }); }
+  }
+  week = { picks, checked: [] };
+  STORE.set('mp_week', week);
+  renderWeek();
+}
+
+function weekMeals() {
+  const byKey = new Map(recipes.map(r => [recipeKey(r), r]));
+  return week.picks.map(p => ({ ...p, r: byKey.get(p.key) })).filter(p => p.r);
+}
+
+// ---------- Inköpslista ----------
+function addAmount(e, unit, amount) {
+  const u = UNIT[unit];
+  const k = u ? u[0] : (unit || '');          // 'kg' | 'l' | övrig enhet som den står
+  e.amounts.set(k, (e.amounts.get(k) || 0) + (u ? amount * u[1] : amount));
+}
+
+function fmtAmount(k, v) {
+  if (k === 'kg') return v >= 1 ? `${num(v)} kg` : `${num(v * 1000)} g`;
+  if (k === 'l') {
+    if (v >= 0.999) return `${num(v)} l`;
+    if (v >= 0.0999) return `${num(v * 10)} dl`;
+    if (v >= 0.015) return `${num(v / 0.015)} msk`;
+    return `${num(v / 0.005)} tsk`;
+  }
+  return `${num(v)}${k ? ' ' + esc(k) : ''}`;
+}
+
+function shoppingList(recipesSel) {
+  const map = new Map();
+  for (const r of recipesSel) for (const ing of (r.ingredients || [])) {
+    if (isStaple(ing.name)) continue;              // salt, peppar, kryddor m.m.
+    const id = fold(ing.name);
+    let e = map.get(id);
+    if (!e) map.set(id, e = { name: ing.name, amounts: new Map(), cost: 0, unknown: false });
+    if (ing.amount != null) addAmount(e, ing.unit, ing.amount);
+    const c = ingCost(ing);
+    if (c === null) e.unknown = true; else e.cost += c;
+  }
+  return [...map.values()].sort((a, b) => a.name.localeCompare(b.name, 'sv'));
+}
+
+function shoppingHtml(sel) {
+  if (!sel.length) {
+    return `<h3>Inköpslista</h3>
+      <p class="meta">Bocka i de måltider du vill ha, så fylls inköpslistan på här.</p>`;
+  }
+  const items = shoppingList(sel);
+  const total = items.reduce((s, e) => s + e.cost, 0);
+  const unknown = items.filter(e => e.unknown).length;
+  const li = items.map(e => {
+    const amt = [...e.amounts].map(([k, v]) => fmtAmount(k, v)).join(' + ');
+    return `<li><span>${esc(e.name)}${amt ? ` <span class="meta">${amt}</span>` : ''}</span>`
+         + `<span class="meta">${e.cost > 0 ? '≈ ' + kr(e.cost) : ''}</span></li>`;
+  }).join('');
+  return `<h3>Inköpslista</h3>
+    <p class="meta">${sel.length} ${sel.length === 1 ? 'måltid' : 'måltider'}. Salt, peppar och kryddor ingår inte.</p>
+    <ul class="shop">${li}</ul>
+    <p class="shop-total"><strong>≈ ${kr(total)}</strong>
+      <span class="meta">att köpa${unknown ? ` (+${unknown} utan pris)` : ''}</span></p>`;
+}
+
+// ---------- Rendering ----------
+function mealRow(m, checked) {
+  const r = m.r;
+  const info = [`${r.servings || 4} portioner`, r.minutes ? `${r.minutes} min` : ''].filter(Boolean).join(' · ');
+  return `<label class="week-meal">
+      <input type="checkbox" data-wk="${esc(m.key)}"${checked ? ' checked' : ''}>
+      <span>
+        <a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.name)}</a>
+        ${isBig(r) ? '<span class="badge">Storkok</span>' : ''}
+        <span class="meta">${info}</span>
+      </span>
+    </label>`;
+}
+
+function selectedRecipes() {
+  const on = new Set(week.checked);
+  return weekMeals().filter(m => on.has(m.key)).map(m => m.r);
+}
+
+function renderWeek() {
+  const out = $('weekOut');
+  const meals = weekMeals();
+  if (!meals.length) { out.innerHTML = ''; return; }
+  const on = new Set(week.checked);
+  const groups = WEEK_CATS.map(c => {
+    const items = meals.filter(m => m.cat === c.tag);
+    return items.length ? `<h3>${c.label}</h3>` + items.map(m => mealRow(m, on.has(m.key))).join('') : '';
+  }).join('');
+  out.innerHTML = `<div class="week-grid">
+      <div class="week-meals">${groups}</div>
+      <aside id="weekList" class="week-list" aria-live="polite">${shoppingHtml(selectedRecipes())}</aside>
+    </div>`;
+}
+
+// ---------- Händelser ----------
+$('weekGen').addEventListener('click', generateWeek);
+
+$('weekOut').addEventListener('change', e => {
+  const cb = e.target.closest('[data-wk]');
+  if (!cb) return;
+  const on = new Set(week.checked);
+  if (cb.checked) on.add(cb.dataset.wk); else on.delete(cb.dataset.wk);
+  week.checked = [...on];
+  STORE.set('mp_week', week);
+  $('weekList').innerHTML = shoppingHtml(selectedRecipes());
+});
+
+// Återställ sparad vecka när recepten har lästs in (index.js hämtar dem asynkront).
+(() => {
+  let tries = 0;
+  const t = setInterval(() => {
+    if (recipes.length) { clearInterval(t); renderWeek(); }
+    else if (++tries > 100) clearInterval(t);
+  }, 100);
+})();
+
+// ---------- Flikar ----------
+document.addEventListener('DOMContentLoaded', () => {
+  const tabs = [...document.querySelectorAll('[role="tab"]')];
+
+  function showTab(id, focus) {
+    for (const t of tabs) {
+      const on = t.dataset.tab === id;
+      t.setAttribute('aria-selected', on);
+      t.tabIndex = on ? 0 : -1;
+      $('panel-' + t.dataset.tab).hidden = !on;
+      if (on && focus) t.focus();
+    }
+    STORE.set('mp_tab', id);
+  }
+
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => showTab(t.dataset.tab));
+    t.addEventListener('keydown', e => {            // ← → byter flik
+      const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (d) showTab(tabs[(i + d + tabs.length) % tabs.length].dataset.tab, true);
+    });
+  });
+
+  const saved = STORE.get('mp_tab', 'suggest');
+  showTab(tabs.some(t => t.dataset.tab === saved) ? saved : 'suggest');
+});
