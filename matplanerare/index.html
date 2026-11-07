@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Matplanerare</title>
+<!-- <style>
+:root{--bg:#f4f6f3;--card:#fff;--ink:#1b2620;--muted:#5d6b63;--line:#d9e0da;--accent:#1f6b4a;--accent-ink:#fff;--warn:#9a5b00}
+@media (prefers-color-scheme:dark){:root{--bg:#141a17;--card:#1d2621;--ink:#e8efe9;--muted:#9aaa9f;--line:#2f3b34;--accent:#5cc08f;--accent-ink:#0d1a13;--warn:#e0a84a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:760px;margin:0 auto;padding:24px 16px 64px}
+h1{font-size:1.8rem;margin:0 0 4px}
+h2{font-size:1.15rem;margin:28px 0 8px}
+p.sub{color:var(--muted);margin:0 0 20px}
+form{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px}
+label.chk{flex-direction:row;align-items:center;gap:8px;color:var(--ink)}
+label{display:flex;flex-direction:column;gap:4px;font-size:.9rem;color:var(--muted)}
+input,select{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:8px}
+input:focus-visible,select:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button{grid-column:1/-1;font:inherit;font-weight:600;background:var(--accent);color:var(--accent-ink);border:0;border-radius:6px;padding:10px 16px;cursor:pointer}
+.recipe{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-bottom:10px;display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
+.recipe a{color:var(--ink);font-weight:600}
+.meta{color:var(--muted);font-size:.9rem}
+.total{font-size:1.1rem;font-weight:600}
+.warn{color:var(--warn)}
+ul.list{columns:2;column-gap:24px;padding-left:18px;margin:0}
+@media (max-width:520px){ul.list{columns:1}}
+ul.list li{break-inside:avoid;margin-bottom:2px}
+</style> -->
+</head>
+<body>
+<main>
+  <h1>Matplanerare</h1>
+  <p class="sub">Välj budget och antal portioner, så föreslås recept som går ihop. Priserna kommer från din egen prislista.</p>
+
+  <form id="f">
+    <label>Budget (kr)<input id="budget" type="number" min="0" value="800"></label>
+    <label>Portioner totalt<input id="total" type="number" min="1" value="16"></label>
+    <label>Portioner per recept (storkok)<input id="batch" type="number" min="1" value="8"></label>
+    <label>Max tillagningstid (min, 0 = ingen gräns)<input id="maxMin" type="number" min="0" value="60"></label>
+    <label>Utesluta ingredienser (kommaseparerat)<input id="exclude" type="text" placeholder="fisk, svamp"></label>
+    <label>Typ av protein<select id="protein"><option value="">Alla</option><option value="fisk">Fisk</option><option value="kott">Kött</option><option value="fagel">Fågel</option></select></label>
+    <label class="chk"><input id="quick" type="checkbox"> Bara recept under 30 min</label>
+    <button type="submit">Föreslå måltider</button>
+  </form>
+
+  <div id="out"></div>
+</main>
+
+<script>
+const UNIT = {kg:['kg',1], hg:['kg',.1], g:['kg',.001], l:['l',1], dl:['l',.1], cl:['l',.01], ml:['l',.001], msk:['l',.015], tsk:['l',.005], krm:['l',.001]};
+let recipes = [], prices = {};
+
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const kr = n => Math.round(n).toLocaleString('sv-SE') + ' kr';
+
+function findPrice(name) {
+  let best = null;
+  for (const k in prices) if (name.includes(k) && (!best || k.length > best.length)) best = k;
+  return best && prices[best];
+}
+
+// Returnerar kostnad i kr, 0 om mängd saknas (t.ex. "salt"), eller null om pris saknas.
+function ingCost(ing) {
+  if (ing.amount == null) return 0;
+  const p = findPrice(ing.name);
+  if (!p) return null;
+  const u = UNIT[ing.unit];
+  if (u) return p.per === 'st' ? null : ing.amount * u[1] * p.price; // kg och l räknas som likvärdiga
+  if (p.per === 'st') return ing.amount * p.price;
+  if (p.stKg) return ing.amount * p.stKg * p.price;
+  return null;
+}
+
+function recipeCost(r) {
+  let sum = 0, unknown = 0;
+  for (const ing of r.ingredients) {
+    const c = ingCost(ing);
+    if (c === null) unknown++; else sum += c;
+  }
+  return {perPortion: sum / r.servings, unknown};
+}
+
+function plan(opts) {
+  const ex = opts.exclude.split(',').map(s => s.trim().toLowerCase()).filter(Boolean);
+  const pool = recipes
+    .filter(r => !opts.protein || (r.tags || []).includes(opts.protein))
+    .filter(r => !opts.quick || (r.tags || []).includes('under-30') || (r.minutes && r.minutes <= 30))
+    .filter(r => !opts.maxMin || !r.minutes || r.minutes <= opts.maxMin)
+    .filter(r => !r.ingredients.some(i => ex.some(e => i.name.includes(e))))
+    .map(r => ({r, ...recipeCost(r)}))
+    .filter(x => x.perPortion > 0);
+
+  const chosen = [];
+  let left = opts.budget, portionsLeft = opts.total;
+  while (portionsLeft > 0 && pool.length) {
+    const target = left / portionsLeft;
+    const ok = pool.filter(x => !chosen.includes(x) && x.perPortion <= target);
+    const rest = pool.filter(x => !chosen.includes(x));
+    if (!rest.length) break;
+    const pick = ok.length ? ok[Math.floor(Math.random() * ok.length)]
+                           : rest.reduce((a, b) => a.perPortion < b.perPortion ? a : b);
+    const portions = Math.min(opts.batch, portionsLeft);
+    pick.portions = portions;
+    pick.cost = pick.perPortion * portions;
+    chosen.push(pick);
+    left -= pick.cost; portionsLeft -= portions;
+  }
+  return {chosen, missing: portionsLeft};
+}
+
+function shoppingList(chosen) {
+  const map = new Map();
+  for (const {r, portions} of chosen) {
+    const f = portions / r.servings;
+    for (const ing of r.ingredients) {
+      const key = ing.name + '|' + ing.unit;
+      const cur = map.get(key) || {name: ing.name, unit: ing.unit, amount: 0, hasAmount: false};
+      if (ing.amount != null) { cur.amount += ing.amount * f; cur.hasAmount = true; }
+      map.set(key, cur);
+    }
+  }
+  return [...map.values()].sort((a, b) => a.name.localeCompare(b.name, 'sv'));
+}
+
+function render(res, budget) {
+  const {chosen, missing} = res;
+  if (!chosen.length) return `<p class="warn">Inga recept matchade. Prova högre tidsgräns, färre uteslutna ingredienser eller fler priser i prices.json.</p>`;
+  const total = chosen.reduce((s, x) => s + x.cost, 0);
+  const over = total > budget;
+  let html = `<h2>Förslag</h2>`;
+  for (const x of chosen) {
+    html += `<div class="recipe"><div><a href="${esc(x.r.url)}" target="_blank" rel="noopener">${esc(x.r.name)}</a>
+      <div class="meta">${x.portions} portioner${x.r.minutes ? ' · ' + x.r.minutes + ' min' : ''}${x.unknown ? ` · <span class="warn">${x.unknown} ingredienser saknar pris</span>` : ''}</div></div>
+      <div><strong>${kr(x.cost)}</strong> <span class="meta">(${kr(x.perPortion)} per portion)</span></div></div>`;
+  }
+  html += `<p class="total">Totalt ${kr(total)} av ${kr(budget)}${over ? ' <span class="warn">– över budget, lägg till billigare ingredienser i prislistan eller höj budgeten</span>' : ''}</p>`;
+  if (missing > 0) html += `<p class="warn">Hittade inte tillräckligt många recept för alla portioner (${missing} saknas).</p>`;
+  html += `<h2>Inköpslista</h2><ul class="list">` + shoppingList(chosen).map(i =>
+    `<li>${i.hasAmount ? esc(+i.amount.toFixed(2)) + ' ' + esc(i.unit) + ' ' : ''}${esc(i.name)}</li>`).join('') + `</ul>`;
+  return html;
+}
+
+document.getElementById('f').addEventListener('submit', e => {
+  e.preventDefault();
+  const v = id => document.getElementById(id).value;
+  const opts = {budget: +v('budget'), total: +v('total'), batch: +v('batch'), maxMin: +v('maxMin'), exclude: v('exclude'), protein: v('protein'), quick: document.getElementById('quick').checked};
+  document.getElementById('out').innerHTML = render(plan(opts), opts.budget);
+});
+
+Promise.all([
+  fetch('/dataRecipies.json').then(r => r.json()),
+  fetch('/dataPrice.json').then(r => r.json())
+]).then(([r, p]) => { recipes = r; prices = p; })
+  .catch(() => { document.getElementById('out').innerHTML = '<p class="warn">Kunde inte läsa data/recipes.json eller data/prices.json. Kör sidan via en webbserver, inte genom att dubbelklicka på filen.</p>'; });
+</script>
+</body>
+</html>

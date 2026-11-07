@@ -1,0 +1,402 @@
+{
+ "salt": {
+  "price": 0,
+  "per": "l"
+ },
+ "peppar": {
+  "price": 0,
+  "per": "st"
+ },
+ "olivolja": {
+  "price": 0,
+  "per": "l"
+ },
+ "svartpeppar": {
+  "price": 0,
+  "per": "st"
+ },
+ "olja": {
+  "price": 0,
+  "per": "l"
+ },
+ "morötter": {
+  "price": 0,
+  "per": "st"
+ },
+ "dijonsenap": {
+  "price": 0,
+  "per": "l"
+ },
+ "japansk soja": {
+  "price": 0,
+  "per": "l"
+ },
+ "rapsolja": {
+  "price": 0,
+  "per": "l"
+ },
+ "nymalen svartpeppar": {
+  "price": 0,
+  "per": "st"
+ },
+ "lagerblad": {
+  "price": 0,
+  "per": "st"
+ },
+ "majsstärkelse": {
+  "price": 0,
+  "per": "l"
+ },
+ "strösocker": {
+  "price": 0,
+  "per": "l"
+ },
+ "vitvinsvinäger": {
+  "price": 0,
+  "per": "l"
+ },
+ "torkad timjan": {
+  "price": 0,
+  "per": "l"
+ },
+ "socker": {
+  "price": 0,
+  "per": "l"
+ },
+ "balsamvinäger": {
+  "price": 0,
+  "per": "l"
+ },
+ "flingsalt": {
+  "price": 0,
+  "per": "st"
+ },
+ "majonnäs": {
+  "price": 0,
+  "per": "l"
+ },
+ "sallad": {
+  "price": 0,
+  "per": "st"
+ },
+ "färskpressad citronjuice": {
+  "price": 0,
+  "per": "l"
+ },
+ "hackad persilja": {
+  "price": 0,
+  "per": "l"
+ },
+ "vitpeppar": {
+  "price": 0,
+  "per": "l"
+ },
+ "kruka persilja": {
+  "price": 0,
+  "per": "st"
+ },
+ "citron": {
+  "price": 0,
+  "per": "st"
+ },
+ "vitt vin": {
+  "price": 0,
+  "per": "l"
+ },
+ "spiskummin": {
+  "price": 0,
+  "per": "l"
+ },
+ "kruka basilika": {
+  "price": 0,
+  "per": "st"
+ },
+ "torkad oregano": {
+  "price": 0,
+  "per": "l"
+ },
+ "flytande honung": {
+  "price": 0,
+  "per": "l"
+ },
+ "rucola": {
+  "price": 0,
+  "per": "kg"
+ },
+ "kruka timjan": {
+  "price": 0,
+  "per": "st"
+ },
+ "bacon (à 140 g)": {
+  "price": 0,
+  "per": "kg"
+ },
+ "gräddfil": {
+  "price": 0,
+  "per": "st"
+ },
+ "rödvinsvinäger": {
+  "price": 0,
+  "per": "l"
+ },
+ "haricots verts (bönor)": {
+  "price": 0,
+  "per": "kg"
+ },
+ "babyspenat": {
+  "price": 0,
+  "per": "kg"
+ },
+ "timjan": {
+  "price": 0,
+  "per": "l"
+ },
+ "palsternackor": {
+  "price": 0,
+  "per": "st"
+ },
+ "pak choi": {
+  "price": 0,
+  "per": "st"
+ },
+ "kalvfond": {
+  "price": 0,
+  "per": "l"
+ },
+ "palsternacka": {
+  "price": 0,
+  "per": "st"
+ },
+ "kruka dragon": {
+  "price": 0,
+  "per": "st"
+ },
+ "fänkålsfrön": {
+  "price": 0,
+  "per": "l"
+ },
+ "äppelcidervinäger": {
+  "price": 0,
+  "per": "l"
+ },
+ "cayennepeppar": {
+  "price": 0,
+  "per": "l"
+ },
+ "torrt vitt vin": {
+  "price": 0,
+  "per": "l"
+ },
+ "kajennpeppar": {
+  "price": 0,
+  "per": "l"
+ },
+ "chilisås": {
+  "price": 0,
+  "per": "l"
+ },
+ "kruka dill": {
+  "price": 0,
+  "per": "st"
+ },
+ "smetana": {
+  "price": 0,
+  "per": "l"
+ },
+ "rött vin": {
+  "price": 0,
+  "per": "l"
+ },
+ "soja": {
+  "price": 0,
+  "per": "l"
+ },
+ "honung": {
+  "price": 0,
+  "per": "l"
+ },
+ "köttbuljongtärning": {
+  "price": 0,
+  "per": "st"
+ },
+ "bacon": {
+  "price": 0,
+  "per": "kg"
+ },
+ "oregano": {
+  "price": 0,
+  "per": "l"
+ },
+ "svartvinbärsgelé": {
+  "price": 0,
+  "per": "l"
+ },
+ "konc äppeljuice": {
+  "price": 0,
+  "per": "l"
+ },
+ "hjärtsallad": {
+  "price": 0,
+  "per": "st"
+ },
+ "kruka koriander": {
+  "price": 0,
+  "per": "st"
+ },
+ "rödvin": {
+  "price": 0,
+  "per": "l"
+ },
+ "mörkt muscovadosocker": {
+  "price": 0,
+  "per": "l"
+ },
+ "pinjenötter": {
+  "price": 0,
+  "per": "l"
+ },
+ "rött matlagningsvin eller rött vin": {
+  "price": 0,
+  "per": "l"
+ },
+ "malen koriander": {
+  "price": 0,
+  "per": "l"
+ },
+ "chilipeppar": {
+  "price": 0,
+  "per": "l"
+ },
+ "malen spiskummin": {
+  "price": 0,
+  "per": "l"
+ },
+ "gurkmeja": {
+  "price": 0,
+  "per": "l"
+ },
+ "matolja": {
+  "price": 0,
+  "per": "l"
+ },
+ "matyoghurt (10 %)": {
+  "price": 0,
+  "per": "l"
+ },
+ "mogna avokador": {
+  "price": 0,
+  "per": "st"
+ },
+ "lime": {
+  "price": 0,
+  "per": "st"
+ },
+ "majs (à 150 g)": {
+  "price": 0,
+  "per": "kg"
+ },
+ "kycklingbuljong (vatten och buljongtärning eller fond)": {
+  "price": 0,
+  "per": "l"
+ },
+ "kruka sallad": {
+  "price": 0,
+  "per": "st"
+ },
+ "torkad dragon": {
+  "price": 0,
+  "per": "l"
+ },
+ "hyvlad parmesan": {
+  "price": 0,
+  "per": "l"
+ },
+ "vitpepparkorn": {
+  "price": 0,
+  "per": "st"
+ },
+ "saffran (à 1/2 g)": {
+  "price": 0,
+  "per": "kg"
+ },
+ "färska blåmusslor": {
+  "price": 0,
+  "per": "kg"
+ },
+ "aioli": {
+  "price": 0,
+  "per": "st"
+ },
+ "neutral rapsolja": {
+  "price": 0,
+  "per": "l"
+ },
+ "havssalt": {
+  "price": 0,
+  "per": "st"
+ },
+ "hönsbuljongtärningar": {
+  "price": 0,
+  "per": "st"
+ },
+ "skalade räkor": {
+  "price": 0,
+  "per": "kg"
+ },
+ "sardellfiléer": {
+  "price": 0,
+  "per": "st"
+ },
+ "citronsaft": {
+  "price": 0,
+  "per": "l"
+ },
+ "worcestershiresås": {
+  "price": 0,
+  "per": "l"
+ },
+ "finriven parmesan": {
+  "price": 0,
+  "per": "l"
+ },
+ "färska lasagneplattor": {
+  "price": 0,
+  "per": "kg"
+ },
+ "jäst": {
+  "price": 0,
+  "per": "kg"
+ },
+ "senap": {
+  "price": 0,
+  "per": "l"
+ },
+ "högrevsfärs": {
+  "price": 0,
+  "per": "kg"
+ },
+ "salladsblad": {
+  "price": 0,
+  "per": "st"
+ },
+ "tabasco": {
+  "price": 0,
+  "per": "st"
+ },
+ "finhackad färsk rosmarin": {
+  "price": 0,
+  "per": "l"
+ },
+ "torkade fikon": {
+  "price": 0,
+  "per": "kg"
+ },
+ "röd chilifrukt": {
+  "price": 0,
+  "per": "st"
+ },
+ "chiliflakes": {
+  "price": 0,
+  "per": "l"
+ }
+}
